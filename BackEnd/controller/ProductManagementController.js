@@ -1,0 +1,78 @@
+const ProductModel= require ('../models/ProductManagementModel');
+const fs=require('fs');
+
+const ProductData= async (req,res) =>{
+    try {
+        const {productname,productquantity,productprice,companyname,color,size,description,productcateogary}= req.body;
+        let ImageDetails=[];
+        // L,MSXL
+        let Size=size.split(',');
+        req.files.forEach(imagearrayobject => {
+            const {filename,originalname,mimetype}=imagearrayobject;
+            ImageDetails.push({
+                ImageUrl:`assets/Product/${productname}/${filename}`,
+                ImageName:originalname,
+                ImageMimeType:mimetype
+            })
+        });
+
+        const doctoCreate= new ProductModel({
+            productname,productquantity,productprice,companyname,color,size:Size,description,productcateogary,
+            imageDetails:ImageDetails
+        })
+        const docToSave= await doctoCreate.save();
+        res.json({
+            Message:'Date Saved Successfully',
+            Body:docToSave,
+            Data:true
+        })
+
+    } catch (error) {
+        res.json({
+            Message:error.message,
+            Result:null,
+            Data:false
+        })
+    }
+}
+
+const GetAllProducts= async (req,res)=>{
+    try {
+        const docToGet=await ProductModel.find();
+        res.json({
+            Message:"All documents Found",
+            Data:true,
+            Result:docToGet
+        })
+    } catch (error) {
+        res.json({
+            Message: error.mesage,
+            Result: null,
+            Data: false
+        })
+    }
+}
+
+const GetProductById= async(req,res)=>{
+    try {
+        const Id=req.params._id;
+        const docToFind= await ProductModel.findOne({_id:Id})
+        res.json({
+            Message:'Data Found Successfuly',
+            Data:true,
+            Result:docToFind
+        })
+    } catch (error) {
+        res.json({
+            Message: error.mesage,
+            Result: null,
+            Data: false
+        })
+    }
+}
+
+module.exports={
+    ProductData,
+    GetAllProducts,
+    GetProductById
+}

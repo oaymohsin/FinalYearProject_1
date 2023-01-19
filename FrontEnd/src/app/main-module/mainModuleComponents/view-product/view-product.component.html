@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+        
+              
+<div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-offset="0" tabindex="0">
+    <div class="row">
+        <div class="col-12" *ngFor="let data of productObject.imageDetails">
+            <img [src]="Url+data.ImageUrl" alt="">
+        </div>
+    </div>
+  </div>
+        </div>
+        <div class="col-md-6" >
+            <h2>{{productObject?.productname}}</h2>
+            <h4>Product Price</h4>
+            <div>
+                <h4>Please Select Size</h4>
+                <button class="btn btn-outline-dark">S</button>
+                <button class="btn btn-outline-dark">M</button>
+                <button class="btn btn-outline-dark">L</button>
+                <button class="btn btn-outline-dark">X-L</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+

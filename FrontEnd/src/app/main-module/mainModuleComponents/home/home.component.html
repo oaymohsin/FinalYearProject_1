@@ -1,0 +1,251 @@
+<!-- Card carousel Start -->
+<div class="container my-5">
+    <div class="my-5">
+        <h3 class="h3 text-center">Our Products</h3>
+      </div>
+    
+  <div id="carouselExampleControls" class="carousel carousel-dark slide " data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" >
+        <div class="card-wrapper container-sm d-flex  justify-content-around">
+          <div class="card  d-flex  " style="width: 18rem;" *ngFor="let data of Allproduct">
+            <img [src]="Url+data.imageDetails[0].ImageUrl" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+              <h3 class="card-title">{{data.productname}}</h3>
+              <p>{{data.description}}</p>
+              <h5>{{data.productprice | currency}}</h5>
+              <a  class="btn btn-primary w-100" routerLink="/view-product/{{data._id}}" >Check Product</a>
+
+            </div>
+          </div>
+          <!-- <div class="card" style="width: 18rem;">
+            <img src="https://source.unsplash.com/collection/190727/1600x900" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+
+            </div>
+          </div>
+          <div class="card" style="width: 18rem;">
+            <img src="https://source.unsplash.com/collection/190727/1600x900" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+
+            </div> -->
+          <!-- </div> -->
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="card-wrapper container-sm d-flex   justify-content-around">
+          <div class="card  " style="width: 18rem;" *ngFor="let data of Allproduct" >
+            <img [src]="Url+data.imageDetails[1].ImageUrl" class="card-img-top img-fluid" alt="...">
+            <div class="card-body text-center ">
+              <h3 class="card-title">{{data.productname}}</h3>
+              <p>{{data.description}}</p>
+              <h5>{{data.productprice | currency}}</h5>
+              <a  class="btn btn-primary w-100" routerLink="/view-product/{{data._id}}">Check Product</a>
+            </div>
+          </div>
+          <!-- <div class="card" style="width: 18rem;">
+            <img src="https://source.unsplash.com/collection/190727/1600x900" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+
+            </div>
+          </div>
+          <div class="card" style="width: 18rem;">
+            <img src="https://source.unsplash.com/collection/190727/1600x900" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+
+            </div>
+          </div> -->
+        </div>
+      </div>
+      <!-- <div class="carousel-item">
+        <div class="card-wrapper container-sm d-flex  justify-content-around">
+          <div class="card " style="width: 18rem;">
+            <img src="https://source.unsplash.com/collection/190727/1600x900" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+
+            </div>
+          </div>
+          <div class="card" style="width: 18rem;">
+            <img src="https://source.unsplash.com/collection/190727/1600x900" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+
+            </div>
+          </div>
+          <div class="card" style="width: 18rem;">
+            <img src="https://source.unsplash.com/collection/190727/1600x900" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Card carousel End -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-12">
+        <h3 class="h3 text-center">Trending Now</h3>
+      </div>
+    </div>
+    <div class="row my-3">
+      <div class="col-md-4 col-lg-3">
+        <div class="card" style="width: 18rem;">
+          <img
+            src="https://media.gettyimages.com/id/182060333/photo/large-assortment-of-office-supplies-on-white-backdrop.jpg?s=612x612&w=gi&k=20&c=hVwgOma9MxReFpKzm6bgL3iWYeENnVSZs93ZQBoKEpw="
+            class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title text-center">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item ">$10</li>
+            <li class="list-group-item">
+              <button class="btn btn-success w-100">Add to Cart</button>
+            </li>
+          </ul>
+          <!-- <div class="card-body">
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div> -->
+        </div>
+      </div>
+
+
+      <div class="col-md-4 col-lg-3">
+        <div class="card" style="width: 18rem;">
+          <img
+            src="https://img.freepik.com/premium-photo/pile-copybooks-stationery-isolated-white_185193-8960.jpg?w=2000"
+            class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title text-center">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item ">$10</li>
+            <li class="list-group-item">
+              <button class="btn btn-success w-100">Add to Cart</button>
+            </li>
+          </ul>
+          <!-- <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+          </div> -->
+        </div>
+      </div>
+
+
+      <div class="col-md-4 col-lg-3">
+        <div class="card" style="width: 18rem;">
+          <img
+            src="https://media.gettyimages.com/id/182060333/photo/large-assortment-of-office-supplies-on-white-backdrop.jpg?s=612x612&w=gi&k=20&c=hVwgOma9MxReFpKzm6bgL3iWYeENnVSZs93ZQBoKEpw="
+            class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title text-center">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item ">$10</li>
+            <li class="list-group-item">
+              <button class="btn btn-success w-100">Add to Cart</button>
+            </li>
+          </ul>
+          <!-- <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+          </div> -->
+        </div>
+      </div>
+
+
+      <div class="col-md-4 col-lg-3">
+        <div style="width: 18rem;">
+          <img class="img-thumbnail"
+            src="https://media.istockphoto.com/id/1141208525/photo/yellow-open-backpack.jpg?s=612x612&w=0&k=20&c=k0NOqN9FnIGdkaUNx6-fMIBG2IfWwLT_AbDVefqJT_0="
+            class="card-img-top img-fluid" alt="...">
+          <div class="card-body">
+            <h5 class="card-title text-center">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item ">$10</li>
+            <li class="list-group-item">
+              <button class="btn btn-success w-100">Add to Cart</button>
+            </li>
+          </ul>
+          <!-- <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+          </div> -->
+        </div>
+      </div>
+
+
+      <div class="col-md-4 col-lg-3">
+        <div class="card" style="width: 18rem;">
+          <img
+            src="https://media.gettyimages.com/id/182060333/photo/large-assortment-of-office-supplies-on-white-backdrop.jpg?s=612x612&w=gi&k=20&c=hVwgOma9MxReFpKzm6bgL3iWYeENnVSZs93ZQBoKEpw="
+            class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title text-center">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item ">$10</li>
+            <li class="list-group-item">
+              <button class="btn btn-success w-100">Add to Cart</button>
+            </li>
+          </ul>
+          <!-- <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+          </div> -->
+        </div>
+      </div>
+
+
+
+
+    </div>
+  </div>
