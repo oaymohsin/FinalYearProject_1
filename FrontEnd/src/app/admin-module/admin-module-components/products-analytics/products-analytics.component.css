@@ -1,0 +1,8 @@
+i:hover{
+    cursor: pointer;
+}
+
+.image{
+    width: 40px !important;
+    height: 40px !important;
+}

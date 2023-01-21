@@ -70,9 +70,68 @@ const GetProductById= async(req,res)=>{
         })
     }
 }
+const DeleteProductById = async (req, res) => {
+    try {
+        const Id = req.params._id;
+        const DocToDelete = await ProductModel.updateOne(
+            { _id:Id },
+            { $set:{softDeleteStatus:1} }
+            );
+            // const docToDelete = await ProductModel.deleteOne(
+            //     { _id:Id }
+            // )
+        res.json({
+            Message: 'Document Deleted Successfuly',
+            Data: true,
+            Result: DocToDelete
+        })
+    } catch (error) {
+        res.json({
+            Message: error.mesage,
+            Result: null,
+            Data: false
+        })
+    }
+}
+
+const HardDelete = async (req, res) => {
+    try {
+        const Id = req.params._id;
+        const docToget = await ProductModel.findOne({_id:Id}).lean();
+       
+        if(!!docToget){
+            const docToDelete = await ProductModel.deleteOne({
+                _id:docToget._id
+            })
+            docToget.imageDetails.forEach(pathOfFiles => {
+                fs.unlinkSync(`${pathOfFiles.ImageUrl}`);
+            })
+            fs.rmdirSync(`../assets/Product/${docToget.productname}`);
+            res.json({
+                Message:'Deleted',
+                Data:true,
+                Result:docToDelete
+            })
+        }else{
+            res.json({
+                Message:'Not Deleted',
+                Data:true,
+                Result:null
+            })
+        }
+    } catch (error) {
+        res.json({
+            Message: error,
+            Result: null,
+            Data: false
+        })
+    }
+}
 
 module.exports={
     ProductData,
     GetAllProducts,
-    GetProductById
+    GetProductById,
+    DeleteProductById,
+    HardDelete
 }
